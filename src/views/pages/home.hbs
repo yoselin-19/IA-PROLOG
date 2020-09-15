@@ -1,67 +1,69 @@
-<div class="container text-center" style="background-color:white; padding:1em">
-    <h1 class="text-center">Zoológico La Aurora</h1>
-    <br>
-    <div class="row">
-        <div class="col col-md-4">
-            <h3>Longevidad</h3>
+<form action="/consultar" method = "POST">
+    <div class="container text-center" style="background-color:white; padding:1em">
+        <h1 class="text-center">Zoológico La Aurora</h1>
+        <br>
+        <div class="row">
+            <div class="col col-md-4">
+                <h3>Longevidad</h3>
 
-            <div class="radio">
-                <label><input type="radio" name="longevidad">Baja</label>
+                <div class="radio">
+                    <label><input type="radio" name="longevidad_baja">Baja</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="longevidad_normal">Normal</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="longevidad_alta">Alta</label>
+                </div>
             </div>
-            <div class="radio">
-                <label><input type="radio" name="longevidad">Normal</label>
+
+            <div class="col col-md-4">
+                <h3>Tipo 1</h3>
+
+                <div class="radio">
+                    <label><input type="radio" name="tipo1">Pez</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="tipo1">Anfibio</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="tipo1">Reptil</label>
+                </div>
             </div>
-            <div class="radio">
-                <label><input type="radio" name="longevidad">Alta</label>
+
+            <div class="col col-md-4">
+                <h3>Tipo 2</h3>
+
+                <div class="radio">
+                    <label><input type="radio" name="tipo2">Invertebrado</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="tipo2">Vertebrado</label>
+                </div>
             </div>
+
         </div>
+        <br>
+        <div class="row">
+            <div class="col col-md-12">
+                El <input name="nombre_animal" placeholder="Nombre del animal" /> posee esas caracteristicas. 
+                <button class="btn btn-info">Consultar</button>
+            </div>
 
-        <div class="col col-md-4">
-            <h3>Tipo 1</h3>
-
-            <div class="radio">
-                <label><input type="radio" name="tipo1">Pez</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="tipo1">Anfibio</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="tipo1">Reptil</label>
-            </div>
         </div>
-
-        <div class="col col-md-4">
-            <h3>Tipo 2</h3>
-
-            <div class="radio">
-                <label><input type="radio" name="tipo2">Invertebrado</label>
+        <br>
+        <div class="row">
+            <div class="col col-md-12">
+                <h3>Resultado:</h3>
+                <br>
+                {{#if tValor}}
+                    {{!-- Cuando tiene que mostrar solo true o false --}}
+                {{else}}
+                    {{!-- Cuando tiene que mostrar la tabla de contenido --}}
+                {{/if}}
             </div>
-            <div class="radio">
-                <label><input type="radio" name="tipo2">Vertebrado</label>
-            </div>
+
         </div>
 
     </div>
-    <br>
-    <div class="row">
-        <div class="col col-md-12">
-            El <input name="nombre_animal" placeholder="Nombre del animal" /> posee esas caracteristicas. 
-            <button class="btn btn-info">Consultar</button>
-        </div>
-
-    </div>
-    <br>
-    <div class="row">
-        <div class="col col-md-12">
-            <h3>Resultado:</h3>
-            <br>
-            {{#if tValor}}
-                {{!-- Cuando tiene que mostrar solo true o false --}}
-            {{else}}
-                {{!-- Cuando tiene que mostrar la tabla de contenido --}}
-            {{/if}}
-        </div>
-
-    </div>
-
-</div>
+</form>
