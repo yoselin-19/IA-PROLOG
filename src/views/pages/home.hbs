@@ -1,7 +1,7 @@
-<form  enctype="multipart/form-data" id="busquedaForm" name="busquedaForm" method="post">
-    <div class="container text-center" style="background-color:white; padding:1em">
-        <h1 class="text-center">Zoológico La Aurora</h1>
-        <br>
+<div class="container text-center" style="background-color:white; padding:1em">
+    <h1 class="text-center">Zoológico La Aurora</h1>
+    <br>
+    <form action="/consultar" method="POST">
         <div class="row">
             <div class="col col-md-2 text-left">
                 <h3>Tipo</h3>
@@ -22,7 +22,7 @@
                     <label><input type="radio" name="tipo" value="mamifero"> Mamifero</label>
                 </div>
             </div>
-                        
+
             <div class="col col-md-2 text-left">
                 <h3>Longevidad</h3>
 
@@ -59,21 +59,21 @@
                 </div>
                 <div class="radio">
                     <label><input type="radio" name="exterior" value="pelo"> Pelo</label>
-                </div>                
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Velocidad</h3>
                 <div class="radio">
                     <label><input type="radio" name="velocidad" value="rapido"> Rapido</label>
-                </div> 
+                </div>
                 <div class="radio">
                     <label><input type="radio" name="velocidad" value="normal"> Normal</label>
-                </div>                 
+                </div>
                 <div class="radio">
                     <label><input type="radio" name="velocidad" value="lento"> Lento</label>
-                </div> 
-            </div>            
+                </div>
+            </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Territorio</h3>
@@ -83,10 +83,10 @@
                 </div>
                 <div class="radio">
                     <label><input type="radio" name="territorio" value="terrestre"> Terrestre</label>
-                </div> 
+                </div>
                 <div class="radio">
                     <label><input type="radio" name="territorio" value="acuatico"> Acuatico</label>
-                </div>                                            
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
@@ -94,7 +94,7 @@
 
                 <div class="radio">
                     <label><input type="radio" name="tiene" value="alas"> Alas</label>
-                </div>           
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
@@ -107,60 +107,60 @@
             <div class="col col-md-2 text-left">
                 <h3>Toma</h3>
                 <div class="radio">
-                    <label><input type="radio" name="toma", value="leche"> Leche</label>
-                </div> 
+                    <label><input type="radio" name="toma" , value="leche"> Leche</label>
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Respira</h3>
                 <div class="radio">
                     <label><input type="radio" name="respira" value="respira"> Respira</label>
-                </div> 
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Puede</h3>
                 <div class="radio">
                     <label><input type="radio" name="puede" value="volar"> Volar</label>
-                </div> 
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Tiene 2</h3>
                 <div class="radio">
                     <label><input type="radio" name="tiene2" value="huesos"> Huesos</label>
-                </div> 
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Siente</h3>
                 <div class="radio">
                     <label><input type="radio" name="siente" value="siente"> Siente</label>
-                </div> 
-            </div>                                
+                </div>
+            </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Tiene 3</h3>
                 <div class="radio">
                     <label><input type="radio" name="tiene3" value="vida"> Vida</label>
-                </div> 
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Peligro</h3>
                 <div class="radio">
                     <label><input type="radio" name="peligro" value="vulnerable"> Vulnerable</label>
-                </div> 
-            </div>            
+                </div>
+            </div>
 
             <div class="col col-md-2 text-left">
                 <h3>Tamanio</h3>
                 <div class="radio">
                     <label><input type="radio" name="tamanio" value="grande"> Grande</label>
-                </div> 
+                </div>
                 <div class="radio">
                     <label><input type="radio" name="tamanio" value="pequenio"> Pequenio</label>
-                </div> 
+                </div>
             </div>
 
             <div class="col col-md-2 text-left">
@@ -173,57 +173,39 @@
                     <label><input type="radio" name="sangre" value="caliente"> Caliente</label>
                 </div>
             </div>
-
         </div>
+
         <br>
         <div class="row">
             <div class="col col-md-22">
-                El <input name="nombre_animal" placeholder="Nombre del animal"/> posee esas caracteristicas. 
-                <button type="submit" class="btn btn-info">Consultar</button>
+                El <input name="nombre_animal" placeholder="Nombre del animal" /> posee esas caracteristicas.
+                <input type="submit" class="btn btn-info" value="Consultar">
             </div>
 
         </div>
-        <br>
-        <div class="row">
-            <div class="col col-md-22">
-                <h3>Resultado:</h3>
-                <br>
-                {{#if tValor}}
-                    {{!-- Cuando tiene que mostrar solo true o false --}}
-                {{else}}
-                    <table class="table">
-                        {{#each animales}}
-                            <p>{{this}}</p>
-                        {{/each}}
-                    </table>
-                    {{!-- Cuando tiene que mostrar la tabla de contenido --}}
-                {{/if}}
-            </div>
+        {{!-- <input type="submit" class="btn btn-info"  value="Consultar"> --}}
+    </form>
 
+    <div class="row">
+        <div class="col col-md-22">
+            <h3>Resultado:</h3>
+            <br>
+            {{#if tValor}}
+            {{!-- Cuando tiene que mostrar solo true o false --}}
+            {{else}}
+            {{!-- Cuando tiene que mostrar la tabla de contenido --}}
+            <table class="table">
+                {{#each animales}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.animal}}</td>
+                    <td><a href="/animal/{{this.id}}">Info</a></td>
+                </tr>
+                {{/each}}
+            </table>
+            {{/if}}
         </div>
 
     </div>
-</form>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script>
-        $(function () {
-            $("#busquedaForm").on("submit", function (e) {
-                e.preventDefault();
-                var f = $(this);
-                var formData = new FormData(document.getElementById("busquedaForm"));
-                var url = f.attr('action');      
-            $.ajax({
-                type: "POST",
-                url: '/consultar',
-                data: f.serialize(), // serializes the form's elements.
-                success: function(data)
-                {
-                    alert(data); // show response from the php script.
-                }
-                });
-
-            });
-        });
-    </script>
+</div>

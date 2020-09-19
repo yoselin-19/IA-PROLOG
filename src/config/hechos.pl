@@ -1,5 +1,3 @@
-galaxia(uno).
-
 animal(1,  molusco, pulpo,           invertebrado, fria,        no,   no,   respirar, marino,   oviparo,    no,    no,     no, siente, vida, baja,  no,         grande, normal).
 animal(2,  molusco, calamar_gigante, invertebrado, fria,        no,   no,   respirar, marino,   oviparo,    no,    no,     no, siente, vida, media, vulnerable, grande, normal).
 animal(3,  molusco, sepia,           invertebrado, fria,        no,   no,   respirar, terrestre,oviparo,    no,    no,     no, siente, vida, baja,  no,         pequenio, lento).

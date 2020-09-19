@@ -22,8 +22,9 @@ router.get('/animal/:id', (req, res) => {
 });
 
 router.post('/consultar', (req, res) => {
+    // console.log(req.body);
     //armar query
-    let query = "animal(Y, @tipo, X, @vertebrado, @sangre, @exterior, @alas, @respira, @territorio, @oviparo, @leche, @volar, @huesos, @siente, @vida, @longevidad, @peligro, @tamanio, @velocidad).";
+    let query = "animal(_, @tipo, X, @vertebrado, @sangre, @exterior, @alas, @respira, @territorio, @oviparo, @leche, @volar, @huesos, @siente, @vida, @longevidad, @peligro, @tamanio, @velocidad).";
     query = sustitucion(req, query)
 
     fs.readFile('./src/config/hechos.pl', 'utf8', function (err, data) {
@@ -47,20 +48,20 @@ router.post('/consultar', (req, res) => {
         // loop
         ++count_answers
         let respuesta = pl.format_answer(answer);
+        console.log("Respuesta> "+respuesta);
         var animal = {};
         try {
             animal = { "id": respuesta.split(",")[0].split("=")[1].trim(), "animal": respuesta.split(",")[1].split("=")[1].replace(";", "").trim() }
             animales.push(animal);
         } catch (e) { }
 
-        session.answer(callback, 2000)
+        session.answer(callback, 1000)
     }
 
     // start the query loop
-    session.answer(callback, 2000)
+    session.answer(callback, 1000)
     // console.log(animales);
-    // res.render("pages/home", {animales:animales, tValor:false});
-    res.send(animales)
+    res.render("pages/home", {animales:animales, tValor:false});
 });
 
 module.exports = router;

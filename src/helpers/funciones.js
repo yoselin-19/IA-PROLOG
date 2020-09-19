@@ -22,7 +22,6 @@ function sustitucion(req, query){
         query = makeReplace(req.body.nombre_animal, query,/X/g);
     }
     
-
     return query
 }
 
