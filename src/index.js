@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const morgan = require('morgan');
+const bodyParser = require('body-parser'); 
 
 // Initializations
 const app = express();
@@ -20,6 +21,8 @@ app.set('view engine', '.hbs');
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
+app.use(bodyParser.json()); // to support JSON bodies
+app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
 
 // Global variables
 
