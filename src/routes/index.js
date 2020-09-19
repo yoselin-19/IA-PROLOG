@@ -24,7 +24,7 @@ router.get('/animal/:id', (req, res) => {
 router.post('/consultar', (req, res) => {
     // console.log(req.body);
     //armar query
-    let query = "animal(_, @tipo, X, @vertebrado, @sangre, @exterior, @alas, @respira, @territorio, @oviparo, @leche, @volar, @huesos, @siente, @vida, @longevidad, @peligro, @tamanio, @velocidad).";
+    let query = "animal(Y, @tipo, X, @vertebrado, @sangre, @exterior, @alas, @respira, @territorio, @oviparo, @leche, @volar, @huesos, @siente, @vida, @longevidad, @peligro, @tamanio, @velocidad).";
     query = sustitucion(req, query)
 
     fs.readFile('./src/config/hechos.pl', 'utf8', function (err, data) {
@@ -33,6 +33,8 @@ router.post('/consultar', (req, res) => {
 
     console.log(query);
     session.query(query);
+
+    animales = []
 
     var count_answers = 0
     var callback = function (answer) {
@@ -60,8 +62,13 @@ router.post('/consultar', (req, res) => {
 
     // start the query loop
     session.answer(callback, 1000)
-    // console.log(animales);
-    res.render("pages/home", {animales:animales, tValor:false});
+    setTimeout( function() {
+        console.log("termino");
+        if(animales.length === 0){
+            res.render("pages/home", {animales:animales, tValor:true});
+        }
+        res.render("pages/home", {animales:animales, tValor:false});
+    }, 3000 );
 });
 
 module.exports = router;

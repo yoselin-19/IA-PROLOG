@@ -174,7 +174,6 @@
                 </div>
             </div>
         </div>
-
         <br>
         <div class="row">
             <div class="col col-md-22">
@@ -183,7 +182,6 @@
             </div>
 
         </div>
-        {{!-- <input type="submit" class="btn btn-info"  value="Consultar"> --}}
     </form>
 
     <div class="row">
@@ -192,9 +190,17 @@
             <br>
             {{#if tValor}}
             {{!-- Cuando tiene que mostrar solo true o false --}}
+            <h3>False</h3>
             {{else}}
             {{!-- Cuando tiene que mostrar la tabla de contenido --}}
             <table class="table">
+                {{#if animales}}
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Info</th>
+                </tr>
+                {{/if}}
                 {{#each animales}}
                 <tr>
                     <td>{{this.id}}</td>
