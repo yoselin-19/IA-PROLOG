@@ -1,8 +1,16 @@
-<div class="card" style="width: 21.5em;margin:0 auto;">
-  <img src="/img/imagen.jpg" class="card-img-top" alt="...">
+<div class="card">
+  <h5 class="card-title text-center">{{{animal.nombre}}}</h5>
+  <img src="{{{animal.img}}}" class="card-img-top" alt="imagen de {{{animal.nombre}}}">
   <div class="card-body">
-    <h5 class="card-title">Informacion completa del animal XXX</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="card-text">
+      <p>Cientifico: {{{animal.nombre_cientifico}}}</p>
+      <p>Altura / Longitud: {{{animal.altura_longitud}}} m</p>
+      <p>Peso: {{{animal.peso}}} Kg</p>
+      <p>Tiempo vida: {{{animal.tiempo_vida}}} años</p>
+      <p>Continente: {{{animal.continente}}}</p>
+      <p>Población: {{{animal.poblacion}}} aprox.</p>
+      <p>Velocidad: {{{animal.velocidad}}} m/s</p>
+    </div>
+    <a href="/" class="btn btn-primary btn-lg btn-block">Back</a>
   </div>
 </div>

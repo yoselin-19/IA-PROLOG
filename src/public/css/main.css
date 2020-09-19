@@ -10,3 +10,12 @@ body{
     background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     color: white;
 }
+
+.card {
+    width: 23em;
+    margin:0 auto;
+}
+
+.card-img-top {
+    height: 15em;
+}

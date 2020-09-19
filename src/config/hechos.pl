@@ -1,3 +1,5 @@
+galaxia(uno).
+
 animal(1,  molusco, pulpo,           invertebrado, fria,        no,   no,   respirar, marino,   oviparo,    no,    no,     no, siente, vida, baja,  no,         grande, normal).
 animal(2,  molusco, calamar_gigante, invertebrado, fria,        no,   no,   respirar, marino,   oviparo,    no,    no,     no, siente, vida, media, vulnerable, grande, normal).
 animal(3,  molusco, sepia,           invertebrado, fria,        no,   no,   respirar, terrestre,oviparo,    no,    no,     no, siente, vida, baja,  no,         pequenio, lento).
@@ -27,5 +29,3 @@ animal(22, mamifero, koala,          vertebrado, caliente,   pelo,    no,   resp
 animal(23, mamifero, leopardo,       vertebrado, caliente,   pelo,    no,   respirar, terrestre,    no,   leche,  no,  huesos, siente, vida, media, vulnerable, grande,   rapido).
 animal(24, mamifero, tigre,          vertebrado, caliente,   pelo,    no,   respirar, terrestre,    no,   leche,  no,  huesos, siente, vida, media, vulnerable, grande,   rapido).
 animal(25, mamifero, elefante,       vertebrado, caliente,   pelo,    no,   respirar, terrestre,    no,   leche,  no,  huesos, siente, vida, alta,  vulnerable, grande,   normal).
-
-

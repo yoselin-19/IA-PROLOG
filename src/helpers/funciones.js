@@ -1,3 +1,5 @@
+const { baseDatos } = require('../models/bd');
+
 function sustitucion(req, query){
     query = makeReplace(req.body.tipo, query,/@tipo/g);
     query = makeReplace(req.body.longevidad, query, /@longevidad/g);
@@ -16,17 +18,32 @@ function sustitucion(req, query){
     query = makeReplace(req.body.peligro, query,/@peligro/g);
     query = makeReplace(req.body.tamanio, query,/@tamanio/g);
     query = makeReplace(req.body.sangre, query,/@sangre/g);
-    query = makeReplace(req.body.nombre_animal, query,/X/g);
+    if(req.body.nombre_animal.length >0 ){
+        query = makeReplace(req.body.nombre_animal, query,/X/g);
+    }
+    
 
     return query
 }
 
 function makeReplace(obj, query, change){ 
-    if(obj !== undefined && obj.length > 0){
+    if(obj !== undefined){
         return query.replace(change, obj);
     } else {
         return query.replace(change, '_');
     }
 }
 
+function getAnimalSpecific(id){
+    let animal = {}
+    baseDatos.forEach(element => {
+        if(id === element.id){
+            animal = element;
+        }
+    });
+    return animal
+}
+
+
 module.exports.sustitucion = sustitucion;
+module.exports.getAnimalSpecific = getAnimalSpecific;

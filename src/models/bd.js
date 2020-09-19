@@ -1,5 +1,4 @@
-export default bd = {
-    'animales': [
+module.exports.baseDatos = bd = [
         {"id": 1, "nombre":"pulpo", "nombre_cientifico": "Octopoda", "altura_longitud": "1", "peso": "10", "tiempo_vida": "5", "continente": "Asia, Europa, America, Oceania", "poblacion": "111555", "velocidad": "11.94", "img": "/img/pulpo.jpg"},
         {"id": 2, "nombre":"calamar_gigante", "nombre_cientifico": "Teuthida", "altura_longitud": "0.4", "peso": "500", "tiempo_vida": "30", "continente": "Europa Oceania, Asia", "poblacion": "123456", "velocidad": "8.33", "img": "/img/calamar.JPG"},
         {"id": 3, "nombre":"sepia", "nombre_cientifico": "Sepia officinalis", "altura_longitud": "0.4", "peso": "2", "tiempo_vida": "2", "continente": "Africa, Oceania", "poblacion": "1225465", "velocidad": "2.78", "img": "/img/sepia.JPG"},
@@ -30,4 +29,3 @@ export default bd = {
         {"id": 24, "nombre":"leopardo", "nombre_cientifico": "Panthera pardus", "altura_longitud": "1.60", "peso": "31", "tiempo_vida": "17", "continente": "Africa, Asia", "poblacion": "2000", "velocidad": "16.11", "img": "/img/leopardo.jpg"},
         {"id": 25, "nombre":"elefante", "nombre_cientifico": "Elephantidae", "altura_longitud": "3.2", "peso": "6000", "tiempo_vida": "70", "continente": "Africa, Asia", "poblacion": "63000", "velocidad": "6.94", "img": "/img/elefante.jpg"}
     ]
-}

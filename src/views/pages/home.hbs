@@ -191,6 +191,11 @@
                 {{#if tValor}}
                     {{!-- Cuando tiene que mostrar solo true o false --}}
                 {{else}}
+                    <table class="table">
+                        {{#each animales}}
+                            <p>{{this}}</p>
+                        {{/each}}
+                    </table>
                     {{!-- Cuando tiene que mostrar la tabla de contenido --}}
                 {{/if}}
             </div>

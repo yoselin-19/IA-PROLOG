@@ -1,57 +1,66 @@
 const express = require('express');
 const pl = require('tau-prolog');
-const {sustitucion} = require('../helpers/funciones');
-const program = '../config/hechos.pl';
+const { sustitucion, getAnimalSpecific } = require('../helpers/funciones');
+const fs = require('fs')
 
-var session = pl.create( 1000 );
-var animales = [];
 const router = express.Router();
+var session = pl.create(1000);
+var animales = [];
 
 router.get('/', async (req, res) => {
     res.render("pages/home")
 });
 
 router.get('/animal/:id', (req, res) => {
+    let animal = getAnimalSpecific(Number(req.params.id));
+    console.log(animal)
+    if (animal !== {}) {
+        res.render("pages/animal", { animal: animal })
+    }
+
     res.render("pages/animal")
 });
 
 router.post('/consultar', (req, res) => {
     //armar query
     let query = "animal(Y, @tipo, X, @vertebrado, @sangre, @exterior, @alas, @respira, @territorio, @oviparo, @leche, @volar, @huesos, @siente, @vida, @longevidad, @peligro, @tamanio, @velocidad).";
-    
     query = sustitucion(req, query)
-    console.log(query);
 
-    session.consult(program);
+    fs.readFile('./src/config/hechos.pl', 'utf8', function (err, data) {
+        session.consult(data);
+    });
+
+    console.log(query);
     session.query(query);
-    
+
     var count_answers = 0
-    var callback = function(answer) {
+    var callback = function (answer) {
         if (answer === false) {
-            console.log('DONE, #answers='+count_answers)
+            console.log('DONE, #answers=' + count_answers)
             return
         }
         if (answer === null) {
-            console.log('TIMEOUT, #answers='+count_answers)
+            console.log('TIMEOUT, #answers=' + count_answers)
             return
         }
+
         // loop
         ++count_answers
-        var respuesta = session.format_answer(answer);
-        console.log(respuesta);
+        let respuesta = pl.format_answer(answer);
         var animal = {};
-        try{
-            animal = {"id":respuesta.split(",")[0].split("=")[1].trim(), "animal": respuesta.split(",")[1].split("=")[1].replace(";", "").trim()}
+        try {
+            animal = { "id": respuesta.split(",")[0].split("=")[1].trim(), "animal": respuesta.split(",")[1].split("=")[1].replace(";", "").trim() }
             animales.push(animal);
-            console.log(animal);
-         }catch(e){}
-        
-        session.answer(callback)
-      }
-      
-      // start the query loop
-      session.answer(callback)
-      res.send(animales.toString());
+        } catch (e) { }
+
+        session.answer(callback, 2000)
+    }
+
+    // start the query loop
+    session.answer(callback, 2000)
+    // console.log(animales);
+    // res.render("pages/home", {animales:animales, tValor:false});
+    res.send(animales)
 });
 
 module.exports = router;
