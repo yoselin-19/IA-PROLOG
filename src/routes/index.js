@@ -53,7 +53,12 @@ router.post('/consultar', (req, res) => {
         console.log("Respuesta> "+respuesta);
         var animal = {};
         try {
-            animal = { "id": respuesta.split(",")[0].split("=")[1].trim(), "animal": respuesta.split(",")[1].split("=")[1].replace(";", "").trim() }
+            if(respuesta.includes("X")){
+                animal = { "id": respuesta.split(",")[0].split("=")[1].trim(), "animal": respuesta.split(",")[1].split("=")[1].replace(";", "").trim() }
+            } else {
+                animal = { "id": respuesta.split(",")[0].split("=")[1].replace(";", "").trim(), "animal": req.body.nombre_animal }
+            }
+            
             animales.push(animal);
         } catch (e) { }
 
